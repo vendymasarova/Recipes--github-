@@ -1,0 +1,33 @@
+provider: DATA_PROVIDER_REST
+method: GET
+url: https://api.spoonacular.com/recipes/random
+
+parameters:
+  apiKey:
+      location: query
+      required: true
+      type: secret
+      value: recipesapi.key
+  number:
+      location: query
+      type: string
+      required: true
+      value: 1
+      
+# outputTransform: >-
+#   $.{"id":recipes.id, "name":recipes.title, "image":recipes.image, "desc":recipes.summary, "ingredients":recipes.extendedIngredients.name, "instructions":recipes.analyzedInstructions.steps.step}
+
+# outputTransform: >-
+#   $map($.recipes."$analyzedInstructions"."steps"."ingredients", function($v) {{
+#     "name":$v.name
+#   }})
+
+  
+# outputTransform: >-
+# $map($.recipes."$analyzedInstructions"."steps", function($v) {{
+
+#   "step":$v.step
+# }})
+
+  
+

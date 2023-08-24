@@ -1,0 +1,85 @@
+title: =@ctx.datasources.randomRecipeData.name
+description: Get random idea what to cook
+type: jig.default
+
+onFocus:
+  type: action.action-list
+  options:
+    actions:
+      - type: action.sync-entities
+        options:
+          provider: DATA_PROVIDER_REST
+          entities:
+            - entity: random-recipe
+              function: rest-get-random-recipe
+
+datasources:
+  randomRecipeData:
+    type: datasource.sqlite
+    options:
+      provider: DATA_PROVIDER_LOCAL
+    
+      entities:
+        - entity: random-recipe
+    
+      query: | 
+        SELECT 
+          id, 
+          '$.name',
+          '$.image', 
+          '$.desc', 
+          '$.ingredients', 
+          '$.instructions'
+        FROM [random-recipe] 
+
+children:
+  - type: component.image
+    options:
+      source:
+        uri: =@ctx.datasources.randomRecipeData.image
+  - type: component.entity
+    options:
+      children:
+        - type: component.entity-field
+          options:
+            label: Recipe Name
+            value: =@ctx.datasources.randomRecipeData.name
+  - type: component.section
+    options:
+      title: Ingredience
+      children:
+        - type: component.list
+          options:
+            data: =@ctx.datasources.randomRecipeData.ingredients
+            maximumItemsToRender: 8
+            item: 
+              type: component.list-item
+              options:
+                title: =@ctx.current.item
+  - type: component.section
+    options:
+      title: Instructions
+      children:
+        - type: component.list
+          options:
+            data: =@ctx.datasources.randomRecipeData.instructions
+            maximumItemsToRender: 8
+            item: 
+              type: component.list-item
+              options:
+                title: =@ctx.current.item
+                
+widgets:
+  "2x4": 
+    type: widget.image
+    options:
+      source:
+        uri: https://images.unsplash.com/photo-1512058454905-6b841e7ad132?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1590&q=80
+      isContentOverlaid: true
+      bottom: 
+        type: component.titles
+        options:
+          title: Random recipe
+          
+          style:
+            isPositive: true

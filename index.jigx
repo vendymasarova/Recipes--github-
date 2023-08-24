@@ -1,0 +1,10 @@
+name: recipes
+title: recipes
+category: business
+widgets:
+  - size: "2x4"
+    jigId: random-recipe
+  - size: "2x2"
+    jigId: game-default
+  - size: "1x1"
+    jigId: upload-image

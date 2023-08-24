@@ -1,0 +1,28 @@
+provider: DATA_PROVIDER_REST
+method: GET
+url: https://api.spoonacular.com/recipes/random
+
+parameters:
+  apiKey:
+      location: query
+      required: true
+      type: secret
+      value: recipesapi.key
+  number:
+      location: query
+      type: string
+      required: true
+      value: 5
+  tags:
+      location: query
+      type: string
+      required: true
+      value: vegetarian
+      
+outputTransform: |
+  {
+    "name": $.recipes.title,
+    "image": $.recipes.image,
+    "id": $.recipes.id
+  }
+ 

@@ -1,0 +1,83 @@
+title: Let's play a game
+description: Upload your own photo of an animal you've seen
+type: jig.list
+
+header:
+  type: component.jig-header
+  options:
+    height: medium
+    children:
+      type: component.image
+      options:
+        source:
+          uri: https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1736&q=80
+
+datasources:
+  mydata: 
+    type: datasource.sqlite
+    options:
+      provider: DATA_PROVIDER_DYNAMIC
+    
+      entities:
+        - default/animals
+      
+      query: | 
+        SELECT 
+          id, 
+          '$.name',
+          '$.subtitle',
+          '$.image', 
+          '$.isHighlighted',
+          '$.isUploaded'
+        FROM [default/animals]
+          
+data: =@ctx.datasources.mydata
+item:
+  type: component.list-item
+  options:
+    divider: solid
+    title: =@ctx.current.item.name
+    subtitle: =@ctx.current.item.subtitle
+    description: "=@ctx.current.item.isUploaded ? 'Successfully uploaded' : ' ' "
+    # style:
+    #   isPositive: =@ctx.datasources.mydata.isUploaded
+    #   isHighlighted: =$boolean(@ctx.datasources.mydata.isHighlighted)
+    leftElement:
+      element: image
+      resizeMode: cover
+      text: =@ctx.current.item.name
+      uri: =@ctx.current.item.image
+    rightElement:
+      element: checkbox
+      value: =$boolean(@ctx.current.item.isUploaded)
+    progress: =@ctx.current.item.isUploaded = 1 ? 1 :0
+    color:
+      - when: true
+        color: color2
+    swipeable:
+      left:
+        - label: Upload
+          icon: add
+          color: primary
+          onPress: 
+            type: action.go-to
+            options:
+              linkTo: upload-image
+              parameters:
+                animal: =@ctx.current.item.id
+        
+widgets:
+  "2x2": 
+    type: widget.image
+    options:
+      source:
+        uri: https://images.unsplash.com/photo-1578326626553-39f72c545b07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=996&q=80
+      bottom:
+        type: component.titles
+        options:
+          title: Game
+          subtitle: 'Your uploads: 3'
+          icon: picture-landscape
+          iconColor: color9
+          align: left
+            
