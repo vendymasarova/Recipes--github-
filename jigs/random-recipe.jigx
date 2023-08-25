@@ -50,24 +50,24 @@ children:
       children:
         - type: component.list
           options:
-            data: =@ctx.datasources.randomRecipeData.ingredients
-            maximumItemsToRender: 8
+            data: =$eval(@ctx.datasources.randomRecipeData.ingredients)
             item: 
               type: component.list-item
               options:
-                title: =@ctx.current.item
+                title: =@ctx.current.item.name
+#         {"name": $ingredient.name}
+#       })
   - type: component.section
     options:
       title: Instructions
       children:
         - type: component.list
           options:
-            data: =@ctx.datasources.randomRecipeData.instructions
-            maximumItemsToRender: 8
+            data: =$eval(@ctx.datasources.randomRecipeData.instructions)
             item: 
               type: component.list-item
               options:
-                title: =@ctx.current.item
+                title: =@ctx.current.item.step
                 
 widgets:
   "2x4": 
