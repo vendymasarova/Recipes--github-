@@ -1,0 +1,306 @@
+title: Calendar of Available Packages
+type: jig.default
+
+# onRefresh: 
+#   type: action.reset-state
+#   options:
+#     state: =@ctx.solution.state.selectedWeek
+
+header:
+  type: component.jig-header
+  options:
+    height: small
+    children:
+      type: component.image
+      options:
+        source:
+          uri: https://hippolakes.co.za/wp-content/uploads/2020/02/lafrican-safari-lodge-view.jpg
+
+
+datasources:
+  weeks: 
+    type: datasource.static
+    options:
+      data:
+        - id: 1
+          week: Oct 15-20, 2023
+          tents: Kudu
+          tag: 1
+        - id: 2
+          week: Oct 22-27, 2023
+          tents:
+          tag: 0
+        - id: 3
+          week: Oct 29 - Nov 3, 2023
+          tents:
+          tag: 0
+        - id: 4
+          week: Nov 5-10, 2023
+          tents: Hippo, Kudu, Rhino
+          tag: 3
+        - id: 5
+          week: Nov 12-17, 2023
+          tents:
+          tag: 0
+        - id: 6
+          week:  Nov 19-24, 2023
+          tents: Buffalo, Kudu, Rhino
+          tag: 3
+        - id: 7
+          week:  Nov 26 - Dec 1, 2023
+          tents: Hippo, Buffalo
+          tag: 2
+        - id: 8
+          week: Dec 3-8, 2023
+          tents: 
+          tag: 0
+        - id: 9
+          week: Dec 10-15, 2023
+          tents: Hippo, Kudu, Rhino
+          tag: 3
+  detail:
+    type: datasource.static
+    options:
+      data:
+        - id: 1
+          name: Buffalo 1
+          status: Booked
+          client: Paul Ewing
+          amount: $1,250
+          agent: Linne Handy
+          addon: "N/A"
+          image: https://hippolakes.co.za/wp-content/uploads/2022/06/9-600x400.jpg
+          image2: https://hippolakes.co.za/wp-content/uploads/2022/06/13-600x400.jpg
+          image3: https://hippolakes.co.za/wp-content/uploads/2022/06/19-600x400.jpg
+          details: 1-2 guests · 1 bedrooms · 1 king bed or 2 twin beds
+          guests: 2
+        - id: 2
+          name: Buffalo 2
+          status: Booked
+          client: Blake Cromartie
+          amount: $7,330
+          agent: Wesley Hobbs
+          addon: "CT"
+          image: https://hippolakes.co.za/wp-content/uploads/2022/06/13-600x400.jpg
+          image2: https://hippolakes.co.za/wp-content/uploads/2022/06/9-600x400.jpg
+          image3: https://hippolakes.co.za/wp-content/uploads/2022/06/19-600x400.jpg
+          details: 1-2 guests · 1 bedrooms · 1 king bed or 2 twin beds
+          guests: 2
+        - id: 3
+          name: Hippo 2
+          status: Available
+          client:
+          amount:
+          agent:
+          addon:
+          image: https://hippolakes.co.za/wp-content/uploads/2022/06/HippoTentPoolLake-600x400.jpg
+          image2: https://hippolakes.co.za/wp-content/uploads/2022/06/Mackouwkuil_1-2-600x400.jpg
+          image3: https://hippolakes.co.za/wp-content/uploads/2022/06/image05-600x400.jpg
+          details: 2-4 guests · 2 bedrooms · 1 king bed & 2 twin beds or 2 queen beds
+          guests: 3
+        - id: 4
+          name: Hippo 3
+          status: Booked
+          client: Amanda Connell
+          amount: $3,350
+          agent: Wesley Hobbs
+          addon: "N/A"
+          image: https://hippolakes.co.za/wp-content/uploads/2022/06/Mackouwkuil_1-2-600x400.jpg
+          image2: https://hippolakes.co.za/wp-content/uploads/2022/06/HippoTentPoolLake-600x400.jpg
+          image3: https://hippolakes.co.za/wp-content/uploads/2022/06/image05-600x400.jpg
+          details: 2-4 guests · 2 bedrooms · 1 king bed & 2 twin beds or 2 queen beds
+          guests: 4
+        - id: 5
+          name: Kudu 1
+          status: Booked
+          client: Brooke Cartwright
+          amount: $1,349
+          agent: Wesley Hobbs
+          addon: "N/A"
+          image: https://hippolakes.co.za/wp-content/uploads/2022/06/InsideKudu-600x400.jpg
+          image2: https://hippolakes.co.za/wp-content/uploads/2022/06/Outside-600x400.jpg
+          image3: https://hippolakes.co.za/wp-content/uploads/2022/06/Bathroom-1-600x400.jpg
+          details: 1-2 guests · 1 bedroom · 1 king bed or 2 twin beds
+          guests: 2
+        - id: 6
+          name: Kudu 4
+          status:  Available
+          client:
+          amount:
+          agent:
+          addon:
+          image: https://hippolakes.co.za/wp-content/uploads/2022/06/Outside-600x400.jpg
+          image2: https://hippolakes.co.za/wp-content/uploads/2022/06/InsideKudu-600x400.jpg
+          image3: https://hippolakes.co.za/wp-content/uploads/2022/06/Bathroom-1-600x400.jpg
+          details: 1-2 guests · 1 bedroom · 1 king bed or 2 twin beds
+        - id: 7
+          name: Rhino 1
+          status: Available
+          client:
+          amount:
+          agent:
+          addon: 
+          image: https://hippolakes.co.za/wp-content/uploads/2022/06/23-600x400.jpg
+          image2: https://hippolakes.co.za/wp-content/uploads/2022/06/9-1-600x400.jpg
+          image3: https://hippolakes.co.za/wp-content/uploads/2022/06/20-600x400.jpg
+          details: 1-2 guests · 1 bedroom · 1 king bed or 2 twin beds
+        - id: 8
+          name: Rhino 2
+          status: Booked
+          client: Christopher Lewis
+          amount: $1,650
+          agent: Daniel Ornellas
+          addon: "N/A"
+          image: https://hippolakes.co.za/wp-content/uploads/2022/06/9-1-600x400.jpg
+          image2: https://hippolakes.co.za/wp-content/uploads/2022/06/23-600x400.jpg
+          image3: https://hippolakes.co.za/wp-content/uploads/2022/06/20-600x400.jpg
+          details: 1-2 guests · 1 bedroom · 1 king bed or 2 twin beds
+          guests: 2
+        - id: 9
+          name: Rhino 3
+          status: Booked
+          client: Bruce Joslyn
+          amount: $1,650
+          agent: Daniel Ornellas
+          addon: "N/A"
+          image: https://hippolakes.co.za/wp-content/uploads/2022/06/20-600x400.jpg
+          image2: https://hippolakes.co.za/wp-content/uploads/2022/06/23-600x400.jpg
+          image3: https://hippolakes.co.za/wp-content/uploads/2022/06/9-1-600x400.jpg
+          details: 1-2 guests · 1 bedroom · 1 king bed or 2 twin beds
+          guests: 2
+        - id: 10
+          name: Rhino 4
+          status: Booked
+          client: John Blake
+          amount: $7,200
+          agent: Brooke Cartwright
+          addon: "N/A"
+          image: https://hippolakes.co.za/wp-content/uploads/2022/06/7-600x400.jpg
+          image2: https://hippolakes.co.za/wp-content/uploads/2022/06/23-600x400.jpg
+          image3: https://hippolakes.co.za/wp-content/uploads/2022/06/9-1-600x400.jpg
+          details: 1-2 guests · 1 bedroom · 1 king bed or 2 twin beds
+          guests: 2
+        
+
+children:
+  - type: component.section
+    options:
+      title: Calendar
+      children:
+        - type: component.form
+          instanceId: dateCalendar
+          options:
+            children:
+              - type: component.date-picker
+                instanceId: startDateCalendar
+                options:
+                  label: Select the date
+  - type: component.list
+    options:
+      isHorizontal: true
+      isHorizontalScrollIndicatorHidden: true
+      data: =@ctx.datasources.weeks
+      maximumItemsToRender: 6
+      item: 
+        type: component.list-item
+        options:
+          horizontalItemSize: large
+          divider: solid
+          title: =@ctx.current.item.week
+          description: "=@ctx.current.item.tag > 0 ? 'Packages: ' & @ctx.current.item.tents:'Fully booked' "
+          leftElement: 
+            element: icon
+            name: calendar
+            isDuotone: true
+          label:
+            title: =@ctx.current.item.tag > 0 ? @ctx.current.item.tag & ' available':'Not available'
+            color:
+            - when: =@ctx.current.item.tag > 0
+              color: color2
+            - when: =@ctx.current.item.tag = 0
+              color: color14
+          color:
+            - when: =@ctx.current.item.tag > 0
+              color: color2
+          # progress: =@ctx.current.item.id = @ctx.solution.state.selectedWeek ? 1:0
+          # onPress: 
+          #   type: action.set-state
+          #   options:
+          #     state: =@ctx.solution.state.selectedWeek
+          #     value: =@ctx.current.item.id
+  - type: component.section
+    options:
+      title: Packages
+      children:
+        - type: component.list
+          options:
+            data: =@ctx.datasources.detail
+            maximumItemsToRender: 10
+            item: 
+              type: component.list-item
+              options:
+                title: =@ctx.current.item.name
+                subtitle: =@ctx.current.item.status
+                rightElement: 
+                  element: icon
+                  name: arrow-right
+                leftElement: 
+                  element: image
+                  text: ''
+                  uri: =@ctx.current.item.image
+                style:
+                  isPositive: =@ctx.current.item.status = 'Available' ? true:false
+                onPress: 
+                  type: action.go-to
+                  options:
+                    linkTo: =@ctx.current.item.status = 'Available' ?  'calendar-detail-available':'calendar-detail-booked'
+                    parameters:
+                      id: =@ctx.current.item.id
+                      name: =@ctx.current.item.name
+                      status: =@ctx.current.item.status
+                      client: =@ctx.current.item.client
+                      amount: =@ctx.current.item.amount
+                      agent: =@ctx.current.item.agent
+                      addon: =@ctx.current.item.addon
+                      image: =@ctx.current.item.image
+                      image2: =@ctx.current.item.image2
+                      image3: =@ctx.current.item.image3
+                      details: =@ctx.current.item.details
+                      guests: =@ctx.current.item.guests
+                      
+widgets:
+  "4x2": 
+    type: widget.group
+    options:
+      children:
+        - type: widget.image
+          options:
+            source:
+              uri: https://hippolakes.co.za/wp-content/uploads/2022/06/HippoTentPoolLake-600x400.jpg
+            top: 
+              type: component.titles
+              options:
+                title: Hippo 2
+                subtitle: Oct 15-20, 2023
+                align: left
+            bottom: 
+              type: component.titles
+              options:
+                title: 1 available
+                style:
+                  isPositive: true
+        - type: widget.list
+          options:
+            data: =@ctx.datasources.weeks
+            item: 
+              type: component.list-item
+              options:
+                divider: solid
+                title: =@ctx.current.item.week
+                subtitle: =@ctx.current.item.tag > 0 ? @ctx.current.item.tag & ' available':'Not available'
+                style:
+                  isPositive:  =@ctx.current.item.tag > 0
+                color:
+                  - when: =@ctx.current.item.tag > 0
+                    color: color2
+                # progress: =@ctx.current.item.id = @ctx.solution.state.selectedWeek ? 1:0

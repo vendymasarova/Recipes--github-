@@ -6,5 +6,5 @@ widgets:
     jigId: random-recipe
   - size: "2x2"
     jigId: game-default
-  - size: "1x1"
-    jigId: upload-image
+  - size: "4x2"
+    jigId: available-packages
