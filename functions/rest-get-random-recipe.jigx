@@ -14,40 +14,20 @@ parameters:
       required: true
       value: 1
       
-# outputTransform: >-
-#   $.{"id":recipes.id, "name":recipes.title, "image":recipes.image, "desc":recipes.summary, "ingredients":recipes.extendedIngredients.name, "instructions":recipes.analyzedInstructions.steps.step}
-
-# outputTransform: >-
-#   $map($.recipes."$analyzedInstructions"."steps"."ingredients", function($v) {{
-#     "name":$v.name
-#   }})
-
-  # $.{"id":recipes.id, "name":recipes.title, "image":recipes.image, "desc":recipes.summary, "ingredients":recipes.extendedIngredients.name, "instructions":recipes.analyzedInstructions.steps.step}
-# outputTransform: >-
-  # reduce($$, function($acc, $cur) {
-  #   $merge([$acc, { $cur: "null" }])
-  # }, {})
-
-  
-# outputTransform: >-
-# $map($.recipes."$analyzedInstructions"."steps", function($v) {{
-
-#   "step":$v.step
-# }})
-
 outputTransform: >-
-  $map(recipes, function($v, $i, $a) {
-    {
-      "id": $v.id,
-      "name": $v.title,
-      "image": $v.image,
-      "desc": $v.summary,
-      "ingredients": $map($v.extendedIngredients, function($ingredient, $idx, $arr) {
-        {"name": $ingredient.name}
-      }),
-      "instructions": $map($v.analyzedInstructions.steps, function($step, $idx, $arr) {
-        {"step": $step.step}
-      })
-    }
-  })
-
+  {
+    "id": $.recipes.id,
+    "name": $.recipes.title,
+    "image": $.recipes.image,
+    "desc": $.recipes.summary,
+    "ingredients": $map($.recipes.extendedIngredients, function($ingredient, $idx, $arr) {
+      {
+        "name": $ingredient.name
+      }
+    }),
+    "instructions": $map($.recipes.analyzedInstructions.steps, function($instruction, $idx, $arr) {
+      {
+        "step": $instruction.step
+      }
+    })
+  }
